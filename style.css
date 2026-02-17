@@ -170,5 +170,23 @@ header {
     }
 }
 
+.admin-nav {
+    margin-bottom: 15px;
+}
+
+.admin-nav button {
+    background: #1e40af;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.ready-label {
+    color: green;
+    font-weight: bold;
+}
+
+
+
 
 
