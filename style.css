@@ -23,8 +23,14 @@ section, .card, .checkout {
 }
 
 .logo {
-    width: 50px;        /* adjust size */
-    height: auto;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;      /* 👈 makes it round */
+    object-fit: cover;       /* prevents stretching */
+    background: white;       /* optional, looks clean */
+    padding: 3px;            /* optional border spacing */
+}
+
 }
 
 .main-header h1 span {
@@ -163,5 +169,6 @@ header {
         text-align: center;
     }
 }
+
 
 
