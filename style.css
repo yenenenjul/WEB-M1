@@ -8,6 +8,23 @@ body {
     background: #f4f6f9;
 }
 
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 50px;        /* adjust size */
+    height: auto;
+}
+
+.main-header h1 span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
 header {
     background: #1e3a8a;
     color: white;
@@ -127,3 +144,15 @@ header {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 600px) {
+    .logo {
+        width: 40px;
+    }
+
+    .logo-area {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
