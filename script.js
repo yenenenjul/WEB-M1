@@ -35,15 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ADD TO CART
-    orderButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            if (!currentUser) return;
+  function addToCart(item, price) {
+    cart.push({ item, price });
+    total += price;
 
-            cart.push(btn.dataset.item);
-            localStorage.setItem(currentUser, JSON.stringify(cart));
-            cartCount.textContent = cart.length;
-        });
-    });
+    cartCount.textContent = cart.length;
+    totalSpan.textContent = total;
+}
 
     // OPEN CART
     document.querySelector(".cart").addEventListener("click", () => {
@@ -115,36 +113,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // PLACE ORDER
-    placeOrder.addEventListener("click", () => {
-        if (!cart.length) return alert("Cart is empty");
-
-       const order = {
-    orderNumber,
-    student: currentUser,
-    cart,
-    total,
-    status: "PENDING"
-};
-
-        };
-
-        localStorage.setItem("order_" + orderNumber, JSON.stringify(order));
-
-        alert(`Order placed! Your order number is ${orderNumber}`);
-        location.reload();
-    });
-});
-
-setInterval(() => {
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (!key.startsWith("order_")) continue;
-
-        const order = JSON.parse(localStorage.getItem(key));
-        if (order.student === currentUser && order.status === "READY") {
-            alert(`Order #${order.orderNumber} is READY for pickup!`);
-            localStorage.removeItem(key);
-        }
+    function placeOrder() {
+    if (!cart.length) {
+        alert("Your cart is empty");
+        return;
     }
-}, 5000);
+
+    const orderNumber = Math.floor(1000 + Math.random() * 9000);
+
+    const order = {
+        orderNumber,
+        student: currentUser,
+        cart,
+        total,
+        status: "PENDING"
+    };
+
+    localStorage.setItem("order_" + orderNumber, JSON.stringify(order));
+
+    alert(`Order placed successfully! Order #${orderNumber}`);
+    clearCart();
+}
+
 
