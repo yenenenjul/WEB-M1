@@ -5,7 +5,15 @@
 
 body {
     margin: 0;
-    background: #f4f6f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1f3a, #1e3a8a);
+    min-height: 100vh;
+}
+
+section, .card, .checkout {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .logo-area {
@@ -155,4 +163,5 @@ header {
         text-align: center;
     }
 }
+
 
