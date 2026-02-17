@@ -118,15 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
     placeOrder.addEventListener("click", () => {
         if (!cart.length) return alert("Cart is empty");
 
-        const orderNumber = Date.now(); // unique voucher
-        const order = {
-            orderNumber,
-            student: currentUser,
-            cart,
-            total,
-            pickup: pickupTime.value,
-            payment: payment.value,
-            status: "PENDING"
+       const order = {
+    orderNumber,
+    student: currentUser,
+    cart,
+    total,
+    status: "PENDING"
+};
+
         };
 
         localStorage.setItem("order_" + orderNumber, JSON.stringify(order));
@@ -148,3 +147,4 @@ setInterval(() => {
         }
     }
 }, 5000);
+
